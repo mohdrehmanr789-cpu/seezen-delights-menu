@@ -3,6 +3,8 @@ import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { menuCategories } from "@/data/menu";
+import { dishImage } from "@/data/dishImages";
+
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
@@ -92,15 +94,24 @@ function MenuPage() {
                   {cat.items.map((item, i) => (
                     <li
                       key={item}
-                      className="flex items-baseline gap-3 border-b border-border/50 py-2 text-sm last:border-b-0"
+                      className="flex items-center gap-3 border-b border-border/50 py-2 text-sm last:border-b-0"
                     >
                       <span className="w-6 shrink-0 text-right text-[0.7rem] text-gold">
                         {i + 1}.
                       </span>
+                      <img
+                        src={dishImage(item, cat.id)}
+                        alt={item}
+                        loading="lazy"
+                        width={512}
+                        height={512}
+                        className="size-10 shrink-0 rounded-lg border border-border/60 object-cover"
+                      />
                       <span className="min-w-0">{item}</span>
                     </li>
                   ))}
                 </ol>
+
               </article>
             ))}
           </div>
