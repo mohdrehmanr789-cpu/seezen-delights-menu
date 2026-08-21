@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { UtensilsCrossed, PackageOpen } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
+import logoAsset from "@/assets/seezen-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
