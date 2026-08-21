@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { UtensilsCrossed, PackageOpen } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
+import logoAsset from "@/assets/seezen-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,7 +25,14 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <SiteLayout>
-      <section className="mx-auto flex max-w-3xl flex-col items-center px-6 py-20 text-center sm:py-28">
+      <section className="mx-auto flex max-w-3xl flex-col items-center px-6 py-16 text-center sm:py-24">
+        <img
+          src={logoAsset.url}
+          alt="Seezen Caterers logo"
+          width={220}
+          height={330}
+          className="mb-8 h-28 w-auto sm:h-36"
+        />
         <p className="text-[0.62rem] uppercase tracking-[0.4em] text-gold">We Serve Memories</p>
         <div className="my-6 h-px w-28 gold-rule" />
         <h1 className="text-4xl leading-tight font-semibold tracking-[0.06em] uppercase sm:text-6xl">

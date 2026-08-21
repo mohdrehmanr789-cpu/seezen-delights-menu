@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import logoAsset from "@/assets/seezen-logo.png.asset.json";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -11,6 +12,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="sticky top-0 z-20 border-b border-border/70 bg-background/90 backdrop-blur">
+        <div className="flex justify-center pt-3">
+          <Link to="/" aria-label="Seezen Caterers home">
+            <img
+              src={logoAsset.url}
+              alt="Seezen Caterers logo"
+              width={96}
+              height={144}
+              className="h-10 w-auto sm:h-12"
+            />
+          </Link>
+        </div>
         <nav className="mx-auto flex max-w-5xl items-center justify-center gap-6 px-4 py-4 text-[0.7rem] uppercase tracking-[0.28em] sm:gap-10 sm:text-xs">
           {navItems.map((item) => (
             <Link
