@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import logoAsset from "@/assets/seezen-logo.png.asset.json";
 
 const navItems = [
   { to: "/", label: "Home" },
