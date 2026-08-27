@@ -8,8 +8,8 @@ export const Route = createFileRoute('/packages')({
 type Pkg = { title: string; note: string; image: string }
 
 const packages: Pkg[] = [
-  { title: "Standard Menu", note: "Rs 450 per plate + Unlimited food", image: "/package-1.jpg" },
-  { title: "Classic Menu", note: "Rs 550 per plate, starter, dessert & drink", image: "/package-2.jpg" },
+  { title: "Standard Menu", note: "Rs 200 per plate + Unlimited food", image: "/package-1.jpg" },
+  { title: "Classic Menu", note: "Rs 900 per plate, starter, dessert & drink", image: "/package-2.jpg" },
   { title: "Wedding Menu", note: "Signature curries, biryani & bakes", image: "/package-3.jpg" },
   { title: "Corporate Menu", note: "Starter, Main course, desserts & drinks", image: "/package-4.jpg" },
   { title: "Premium Menu", note: "Signature starter, biryani & bakes", image: "/package-5.jpg" },
