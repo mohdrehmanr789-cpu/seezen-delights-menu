@@ -27,7 +27,7 @@ function Home() {
     <SiteLayout>
       <section className="mx-auto flex max-w-3xl flex-col items-center px-6 py-16 text-center sm:py-24">
         <img
-          src={logoAsset.url}
+          src="/favicon.png"
           alt="Seezen Caterers logo"
           width={220}
           height={330}
