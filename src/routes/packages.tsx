@@ -1,4 +1,11 @@
-type Pkg = { title: string; note: string; image: string };
+import { createFileRoute } from '@tanstack/react-router'
+import { SiteLayout } from '@/components/SiteLayout'
+
+export const Route = createFileRoute('/packages')({
+  component: PackagesPage,
+})
+
+type Pkg = { title: string; note: string; image: string }
 
 const packages: Pkg[] = [
   { title: "Standard Menu", note: "Rs 450 per plate + Unlimited food", image: "/package-1.jpg" },
@@ -7,30 +14,7 @@ const packages: Pkg[] = [
   { title: "Corporate Menu", note: "Starter, Main course, desserts & drinks", image: "/package-4.jpg" },
   { title: "Premium Menu", note: "Signature starter, biryani & bakes", image: "/package-5.jpg" },
   { title: "Vip Course Menu", note: "Signature curries, biryani & bakes", image: "/package-6.jpg" },
-];
-
-export const Route = createFileRoute("/packages")({
-  head: () => ({
-    meta: [
-      {
-        title: "Wedding Packages - Seezen Caterers, Kanpur",
-      },
-      {
-        name: "description",
-        content:
-          "Seezen Caterers wedding packages from ₹200 per plate with unlimited food - veg, non-veg and premium royal menus",
-      },
-      { property: "og:title", content: "Wedding Packages - Seezen Caterers" },
-      {
-        property: "og:description",
-        content: "Veg, non-veg and royal wedding catering packages with unlimited food.",
-      },
-      { property: "og:image", content: "/package-1.jpg" },
-      { name: "twitter:image", content: "/package-1.jpg" },
-    ],
-  }),
-  component: PackagesPage,
-});
+]
 
 function PackagesPage() {
   return (
@@ -94,5 +78,5 @@ function PackagesPage() {
         </div>
       </section>
     </SiteLayout>
-  );
+  )
 }
