@@ -170,4 +170,14 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+
+#lovable-badge,
+[class*="lovable"],
+[id*="lovable"],
+div[style*="z-index: 2147483647"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
+  
