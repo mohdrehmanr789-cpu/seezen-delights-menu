@@ -1,39 +1,32 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { SiteLayout } from "@/components/SiteLayout";
-import vegDark from "@/assets/IMG-20260808-WA0022.jpg.asset.json";
-import vegDarkAlt from "@/assets/IMG-20260808-WA0023.jpg.asset.json";
-import royal900 from "@/assets/IMG-20260808-WA0024.jpg.asset.json";
-import veg200 from "@/assets/IMG-20260808-WA0025.jpg.asset.json";
-import mainCourse from "@/assets/IMG-20260808-WA0026.jpg.asset.json";
-import classic from "@/assets/IMG-20260808-WA0027.jpg.asset.json";
-
 type Pkg = { title: string; note: string; image: string };
 
 const packages: Pkg[] = [
-  { title: "Royal Non-Veg", note: "₹900 per plate • Unlimited food", image: royal900.url },
-  { title: "Veg Special", note: "₹200 per plate • Unlimited food", image: veg200.url },
-  { title: "Wedding Veg Menu", note: "Main course, starters, dessert & drinks", image: vegDark.url },
-  { title: "Premium Veg Menu", note: "Celebrate with taste & elegance", image: vegDarkAlt.url },
-  { title: "Classic Wedding Menu", note: "Starter, main course, desserts & drinks", image: classic.url },
-  { title: "Main Course Menu", note: "Signature curries, biryani & breads", image: mainCourse.url },
+  { title: "Standard Menu", note: "Rs 450 per plate + Unlimited food", image: "/package-1.jpg" },
+  { title: "Classic Menu", note: "Rs 550 per plate, starter, dessert & drink", image: "/package-2.jpg" },
+  { title: "Wedding Menu", note: "Signature curries, biryani & bakes", image: "/package-3.jpg" },
+  { title: "Corporate Menu", note: "Starter, Main course, desserts & drinks", image: "/package-4.jpg" },
+  { title: "Premium Menu", note: "Signature starter, biryani & bakes", image: "/package-5.jpg" },
+  { title: "Vip Course Menu", note: "Signature curries, biryani & bakes", image: "/package-6.jpg" },
 ];
 
 export const Route = createFileRoute("/packages")({
   head: () => ({
     meta: [
-      { title: "Wedding Packages — Seezen Caterers, Kanpur" },
+      {
+        title: "Wedding Packages - Seezen Caterers, Kanpur",
+      },
       {
         name: "description",
         content:
-          "Seezen Caterers wedding packages from ₹200 per plate with unlimited food — veg, non-veg and premium royal menus for Kanpur weddings and events.",
+          "Seezen Caterers wedding packages from ₹200 per plate with unlimited food - veg, non-veg and premium royal menus",
       },
-      { property: "og:title", content: "Wedding Packages — Seezen Caterers" },
+      { property: "og:title", content: "Wedding Packages - Seezen Caterers" },
       {
         property: "og:description",
         content: "Veg, non-veg and royal wedding catering packages with unlimited food.",
       },
-      { property: "og:image", content: royal900.url },
-      { name: "twitter:image", content: royal900.url },
+      { property: "og:image", content: "/package-1.jpg" },
+      { name: "twitter:image", content: "/package-1.jpg" },
     ],
   }),
   component: PackagesPage,
@@ -66,7 +59,7 @@ function PackagesPage() {
               <div className="aspect-[3/4] overflow-hidden bg-secondary">
                 <img
                   src={pkg.image}
-                  alt={`${pkg.title} — Seezen Caterers package card`}
+                  alt={`${pkg.title} - Seezen Caterers package card`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
@@ -81,19 +74,19 @@ function PackagesPage() {
         </div>
 
         <div className="mt-14 rounded-2xl border border-gold/60 bg-secondary p-8 text-center">
-          <h2 className="text-xl font-semibold uppercase tracking-[0.18em]">Book This Package</h2>
+          <h2 className="text-xl font-semibold uppercase tracking-[0.16em]">Book This Package</h2>
           <div className="mx-auto my-4 h-px w-16 gold-rule" />
-          <p className="text-sm text-muted-foreground">88/502 Chamanganj, Kanpur</p>
+          <p className="text-sm text-muted-foreground">88/502 Chaman Ganj, Kanpur</p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="tel:8957966999"
-              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-xs uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
+              href="tel:8957066099"
+              className="inline-flex items-center justify-center rounded-full primary-bg px-5 py-2 text-sm uppercase tracking-wider"
             >
-              Call 8957966999
+              Call 8957066099
             </a>
             <a
-              href="mailto:seezencaterers@gmail.com"
-              className="inline-flex items-center justify-center rounded-full border border-gold px-8 py-3 text-xs uppercase tracking-[0.22em] hover:bg-card"
+              href="mailto:seezen@caterer.com"
+              className="inline-flex items-center justify-center rounded-full border border-gold px-5 py-2 text-sm uppercase tracking-wider"
             >
               Email Us
             </a>
