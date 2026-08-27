@@ -159,18 +159,17 @@
     font-family: var(--font-display);
   }
 }
-
-@utility gold-rule {
+.gold-rule {
   height: 1px;
   background: var(--gradient-gold);
 }
 
-@utility text-gold-gradient {
+.text-gold-gradient {
   background: var(--gradient-gold);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-
+}
 #lovable-badge,
 [class*="lovable"],
 [id*="lovable"],
