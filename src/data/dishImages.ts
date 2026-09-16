@@ -21,6 +21,7 @@ import kebab from "@/assets/dish/kebab.jpg";
 
 /** Keyword rules checked in order; first match wins. */
 const rules: Array<[RegExp, string]> = [
+  [/ice[- ]cream|kulfi|faluda|hot brownie|chocolate candy/i, iceCream],
   [/chaat|dahi bada|papdi/i, chaat],
   [/paneer stick|paneer tikka|cheese ball|haryali|cutlet/i, paneerTikka],
   [/pasta|chowmein|dosa|vadapav|pizza|sandwich|pav bhaji|potato|spring roll|fries|popcorn|candy|chocolate fountain|paan|hukka|dhaba|burma/i, snacks],
