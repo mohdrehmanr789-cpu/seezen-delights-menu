@@ -61,7 +61,7 @@ export const menuCategories: MenuCategory[] = [
     id: "ice-cream",
     title: "Ice-Cream",
     items: [
-      "Royal Fruit Ice-Cream","American Nut Ice-Cream","Mango Ice-Cream","Butterscotch Ice-Cream","Brownie Ice-Cream","Fruit Nut Ice-Cream","Vanilla Ice-Cream","Strawberry Ice-Cream","Rajbhog Ice-Cream","Mava King Ice-Cream","Softy Ice-Cream","Kulfi Cake Ice-Cream","Kesari Tajmahal Ice-Cream","Kesar Zafran Kaju Ice-Cream","Kasata Double Dhamaal Ice-Cream","Faluda Kulfi","Fruit Custard",
+      "Royal Fruit Ice-Cream","American Nut Ice-Cream","Mango Ice-Cream","Butterscotch Ice-Cream","Brownie Ice-Cream","Fruit Nut Ice-Cream","Vanilla Ice-Cream","Strawberry Ice-Cream","Rajbhog Ice-Cream","Mava King Ice-Cream","Softy Ice-Cream","Kulfi Cake Ice-Cream","Kesari Tajmahal Ice-Cream","Kesar Zafran Kaju Ice-Cream","Kasata Double Dhamaal Ice-Cream","Faluda Kulfi","Fruit Custard","Fruit Ice Cream","Roller Fruit Ice Cream","Cassata Ice Cream","Taj Mahal Ice Cream","Mango Ice Cream","Vanilla Ice Cream","Butterscotch Ice Cream","Chocolate Ice Cream","Tutti Frutti Ice Cream","Strawberry Ice Cream","American Nuts Ice Cream","Rajbhog Ice Cream","Chocolate Candy Ice Cream","Ice Cream Cake","Hot Brownie",
     ],
   },
   {
