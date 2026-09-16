@@ -33,7 +33,7 @@ const rules: Array<[RegExp, string]> = [
   [/biryani|pulao/i, biryani],
   [/rice/i, rice],
   [/roti|naan|paratha|sheermal|taftan|puri|bhatura|bakarkhani|gulapsha/i, bread],
-  [/ice-cream|kulfi|softy|custard/i, iceCream],
+  [/ice[- ]cream|kulfi|softy|custard|hot brownie/i, iceCream],
   [/jamun|jalebi|imarti|rasmalai|chena|tukda|kunafa|cake|mango cream/i, sweets],
   [/kheer|halwa|mutanjan|mujaffar/i, dessert],
   [/coffee|chai|tea|kahwa|espresso|cappuccino|mocha/i, coffee],
