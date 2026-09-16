@@ -59,7 +59,7 @@ function MenuPage() {
             <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-[#c9a24b]">
               Digital Menu
             </p>
-            <h1 className="mt-2 font-serif text-2xl font-semibold text-[#f3e9d2] sm:text-4xl">
+            <h1 className="mt-2 font-display text-2xl font-semibold text-[#f3e9d2] sm:text-4xl">
               Huzee Caterers Menu
             </h1>
             <div className="mx-auto my-4 h-px w-20 bg-gradient-to-r from-transparent via-[#c9a24b] to-transparent" />
@@ -117,7 +117,7 @@ function MenuPage() {
             <div className="space-y-8">
               {categories.map((cat) => (
                 <article key={cat.id} id={`cat-${cat.id}`} className="scroll-mt-20">
-                  <h2 className="font-serif text-base font-semibold text-[#f3e9d2] sm:text-xl">
+                  <h2 className="font-display text-base font-semibold text-[#f3e9d2] sm:text-xl">
                     {cat.title}
                   </h2>
                   <div className="mt-1.5 mb-3 h-px w-full bg-gradient-to-r from-[#c9a24b]/60 via-[#3a2c1a] to-transparent" />
