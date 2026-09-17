@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { ArrowLeft, ArrowUpRight, Search, SearchX } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { menuCategories } from "@/data/menu";
-import { dishImage } from "@/data/dishImages";
+import { categoryFallback, dishImage } from "@/data/dishImages";
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
