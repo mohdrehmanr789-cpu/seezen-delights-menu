@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { menuCategories } from "@/data/menu";
 import { dishImage } from "@/data/dishImages";
@@ -26,35 +26,25 @@ export const Route = createFileRoute("/menu")({
   component: MenuPage,
 });
 
-const categoryNav = [
-  { id: "starters-veg", label: "Starters" },
-  { id: "starters-nonveg", label: "Non-Veg" },
-  { id: "mutton", label: "Main Course" },
-  { id: "biryani", label: "Rice & Biryani" },
-  { id: "desserts", label: "Desserts" },
-  { id: "drinks", label: "Beverages" },
-];
-
 function MenuPage() {
   const [query, setQuery] = useState("");
-  const [active, setActive] = useState<string>("all");
+  const [open, setOpen] = useState<string | null>(null);
+
+  const q = query.trim().toLowerCase();
 
   const categories = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    if (!q) return menuCategories;
     return menuCategories
-      .filter((c) => active === "all" || c.id === active)
-      .map((c) => ({ ...c, items: q ? c.items.filter((i) => i.toLowerCase().includes(q)) : c.items }))
+      .map((c) => ({ ...c, items: c.items.filter((i) => i.toLowerCase().includes(q)) }))
       .filter((c) => c.items.length > 0);
-  }, [query, active]);
+  }, [q]);
 
-  const scrollTo = (id: string) => {
-    document.getElementById(`cat-${id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const toggle = (id: string) => setOpen((cur) => (cur === id ? null : id));
 
   return (
     <SiteLayout>
       <div className="bg-[#171009] text-[#e9ddc9]">
-        <section className="mx-auto max-w-5xl px-3 pt-6 pb-16 sm:px-6 sm:pt-10">
+        <section className="mx-auto max-w-3xl px-3 pt-6 pb-16 sm:px-6 sm:pt-10">
           <header className="text-center">
             <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-[#c9a24b]">
               Digital Menu
@@ -65,7 +55,7 @@ function MenuPage() {
             <div className="mx-auto my-4 h-px w-20 bg-gradient-to-r from-transparent via-[#c9a24b] to-transparent" />
           </header>
 
-          <div className="relative mx-auto mb-3 max-w-3xl">
+          <div className="relative mx-auto mb-6 max-w-xl">
             <Search className="pointer-events-none absolute top-1/2 left-3.5 size-3.5 -translate-y-1/2 text-[#c9a24b]/70" />
             <input
               value={query}
@@ -76,74 +66,68 @@ function MenuPage() {
             />
           </div>
 
-          {/* Quick category chips */}
-          <div className="-mx-3 mb-2 flex gap-1.5 overflow-x-auto px-3 pb-2 [scrollbar-width:none] sm:mx-0 sm:justify-center sm:px-0">
-            {categoryNav.map((c) => (
-              <button
-                key={c.id}
-                type="button"
-                onClick={() => scrollTo(c.id)}
-                className="h-6 shrink-0 rounded-full border border-[#3a2c1a] bg-[#211709] px-3 text-[0.55rem] font-medium uppercase tracking-[0.12em] text-[#d8c69b] transition-colors hover:border-[#c9a24b] hover:text-[#f3e9d2]"
-              >
-                {c.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Category filter pills */}
-          <div className="-mx-3 mb-6 flex gap-1.5 overflow-x-auto px-3 pb-2 [scrollbar-width:none] sm:mx-0 sm:px-0">
-            {[{ id: "all", title: "All" }, ...menuCategories].map((c) => (
-              <button
-                key={c.id}
-                type="button"
-                aria-pressed={active === c.id}
-                onClick={() => setActive(c.id)}
-                className={`h-7 shrink-0 rounded-full px-3 text-[0.56rem] font-medium uppercase tracking-[0.12em] transition-colors ${
-                  active === c.id
-                    ? "bg-[#c9a24b] text-[#171009]"
-                    : "border border-[#3a2c1a] bg-[#211709] text-[#d8c69b] hover:border-[#c9a24b]"
-                }`}
-              >
-                {c.title}
-              </button>
-            ))}
-          </div>
-
           {categories.length === 0 ? (
             <p className="py-16 text-center text-sm text-[#a08b66]">
               No dishes match “{query}”.
             </p>
           ) : (
-            <div className="space-y-8">
-              {categories.map((cat) => (
-                <article key={cat.id} id={`cat-${cat.id}`} className="scroll-mt-20">
-                  <h2 className="font-display text-base font-semibold text-[#f3e9d2] sm:text-xl">
-                    {cat.title}
-                  </h2>
-                  <div className="mt-1.5 mb-3 h-px w-full bg-gradient-to-r from-[#c9a24b]/60 via-[#3a2c1a] to-transparent" />
-                  <ol className="grid grid-cols-2 gap-x-4 sm:gap-x-8">
-                    {cat.items.map((item, i) => (
-                      <li
-                        key={item}
-                        className="grid min-h-12 grid-cols-[1.9rem_minmax(0,1fr)] items-center gap-2 border-b border-[#2c2113] py-1.5"
-                      >
-                        <img
-                          src={dishImage(item, cat.id)}
-                          alt={item}
-                          loading="lazy"
-                          width={512}
-                          height={512}
-                          className="size-8 rounded-md border border-[#3a2c1a] object-cover"
+            <div className="space-y-3">
+              {categories.map((cat) => {
+                const isOpen = q ? true : open === cat.id;
+                return (
+                  <article
+                    key={cat.id}
+                    className="overflow-hidden rounded-xl border border-[#3a2c1a] bg-[#211709]"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => toggle(cat.id)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left transition-colors hover:bg-[#2a1d0d]"
+                    >
+                      <div className="min-w-0">
+                        <h2 className="font-display text-sm font-semibold text-[#f3e9d2] sm:text-lg">
+                          {cat.title}
+                        </h2>
+                        <p className="mt-0.5 text-[0.6rem] uppercase tracking-[0.18em] text-[#a08b66]">
+                          {cat.items.length} dishes
+                        </p>
+                      </div>
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[#c9a24b]/40 text-[#c9a24b]">
+                        <ChevronDown
+                          className={`size-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                         />
-                        <span className="min-w-0 text-[0.66rem] leading-tight text-[#e9ddc9]">
-                          <span className="mr-1 text-[0.56rem] text-[#c9a24b]">{i + 1}.</span>
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ol>
-                </article>
-              ))}
+                      </span>
+                    </button>
+
+                    {isOpen && (
+                      <div className="border-t border-[#3a2c1a] px-3 py-2 sm:px-4">
+                        <ol className="grid grid-cols-2 gap-x-4 sm:gap-x-8">
+                          {cat.items.map((item, i) => (
+                            <li
+                              key={item}
+                              className="grid min-h-12 grid-cols-[1.9rem_minmax(0,1fr)] items-center gap-2 border-b border-[#2c2113] py-1.5"
+                            >
+                              <img
+                                src={dishImage(item, cat.id)}
+                                alt={item}
+                                loading="lazy"
+                                width={512}
+                                height={512}
+                                className="size-8 rounded-md border border-[#3a2c1a] object-cover"
+                              />
+                              <span className="min-w-0 text-[0.66rem] leading-tight text-[#e9ddc9]">
+                                <span className="mr-1 text-[0.56rem] text-[#c9a24b]">{i + 1}.</span>
+                                {item}
+                              </span>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
             </div>
           )}
         </section>
