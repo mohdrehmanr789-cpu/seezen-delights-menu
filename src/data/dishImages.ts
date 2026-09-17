@@ -43,7 +43,7 @@ const rules: Array<[RegExp, string]> = [
   [/salad/i, salad],
 ];
 
-const categoryFallback: Record<string, string> = {
+export const categoryFallback: Record<string, string> = {
   "starters-veg": snacks,
   "starters-nonveg": chickenStarter,
   mutton: muttonCurry,
