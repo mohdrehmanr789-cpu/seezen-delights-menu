@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+// category cover art uses the category fallback image
+
 import { useMemo, useState } from "react";
 import { ArrowLeft, ArrowUpRight, Search, SearchX } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
