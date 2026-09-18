@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-// category cover art uses the category fallback image
 
 import { useMemo, useState } from "react";
 import { ArrowLeft, ArrowUpRight, Search, SearchX } from "lucide-react";
@@ -251,7 +250,7 @@ function MenuPage() {
                       className="group relative h-[205px] overflow-hidden rounded-[19px] bg-[#3d2519] text-left text-white shadow-[0_10px_30px_rgba(78,48,28,0.08)] transition-transform duration-200 hover:-translate-y-1 sm:h-[235px]"
                     >
                       <img
-                        src={dishImage(cat.items[0], cat.id)}
+                        src={categoryFallback[cat.id] ?? dishImage(cat.items[0], cat.id)}
                         alt={cat.title}
                         loading="lazy"
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
