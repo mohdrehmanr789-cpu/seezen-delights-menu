@@ -6,13 +6,13 @@ import logoAsset from "@/assets/seezen-logo.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Seezen Caterers — Wedding & Event Catering in Kanpur" },
+      { title: "HUZEE CATERERS — Wedding & Event Catering in Kanpur" },
       {
         name: "description",
         content:
-          "Seezen Caterers, Chamanganj Kanpur. Wedding, catering and event menus with unlimited food packages. View our digital menu and packages.",
+          "HUZEE CATERERS, Chamanganj Kanpur. Wedding, catering and event menus with unlimited food packages. View our digital menu and packages.",
       },
-      { property: "og:title", content: "Seezen Caterers — Wedding Catering, Kanpur" },
+      { property: "og:title", content: "HUZEE CATERERS — Wedding Catering, Kanpur" },
       {
         property: "og:description",
         content: "Wedding • Catering • Events. Explore our digital menu and package gallery.",
@@ -28,7 +28,7 @@ function Home() {
       <section className="mx-auto flex max-w-3xl flex-col items-center px-6 py-16 text-center sm:py-24">
         <img
           src="/favicon.png"
-          alt="Seezen Caterers logo"
+          alt="HUZEE CATERERS logo"
           width={220}
           height={330}
           className="mb-8 h-28 w-auto sm:h-36"
@@ -36,7 +36,7 @@ function Home() {
         <p className="text-[0.62rem] uppercase tracking-[0.4em] text-gold">We Serve Memories</p>
         <div className="my-6 h-px w-28 gold-rule" />
         <h1 className="text-4xl leading-tight font-semibold tracking-[0.06em] uppercase sm:text-6xl">
-          Seezen Caterers
+          HUZEE CATERERS
         </h1>
         <p className="mt-5 text-xs uppercase tracking-[0.32em] text-muted-foreground sm:text-sm">
           Wedding • Catering • Events

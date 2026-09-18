@@ -21,7 +21,7 @@ function PackagesPage() {
     <SiteLayout>
       <section className="mx-auto max-w-6xl px-4 pt-12 pb-20 sm:px-6">
         <header className="text-center">
-          <p className="text-[0.62rem] uppercase tracking-[0.4em] text-gold">Seezen Caterers</p>
+          <p className="text-[0.62rem] uppercase tracking-[0.4em] text-gold">HUZEE CATERERS</p>
           <h1 className="mt-4 text-3xl font-semibold uppercase tracking-[0.06em] sm:text-5xl">
             Packages
           </h1>
@@ -43,7 +43,7 @@ function PackagesPage() {
               <div className="aspect-[3/4] overflow-hidden bg-secondary">
                 <img
                   src={pkg.image}
-                  alt={`${pkg.title} - Seezen Caterers package card`}
+                  alt={`${pkg.title} - HUZEE CATERERS package card`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
