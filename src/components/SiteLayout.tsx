@@ -33,7 +33,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <footer className="border-t border-border/70 px-4 py-8 text-center">
         <div className="mx-auto mb-4 h-px w-24 gold-rule" />
         <p className="text-[0.68rem] uppercase tracking-[0.2em] text-muted-foreground">
-          © 2026 Seezen Caterers. All Rights Reserved.
+          © 2026 HUZEE CATERERS. All Rights Reserved.
         </p>
         <p className="mt-2 text-[0.68rem] uppercase tracking-[0.2em] text-muted-foreground">
           Chamanganj, Kanpur |{" "}
