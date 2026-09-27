@@ -26,6 +26,13 @@ import sv4 from "@/assets/starters-veg-4.jpg";
 /** Uploaded veg-starter chaat photos, cycled deterministically per dish name. */
 const startersVegPool: string[] = [sv1, sv2, sv3, sv4];
 
+/** Original photos matched exactly to the existing Starter Veg dish names. */
+const starterVegDishImages = import.meta.glob<string>("../assets/starter-veg/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
 function poolIndex(name: string, mod: number): number {
   let h = 0;
   for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
@@ -69,9 +76,9 @@ export const categoryFallback: Record<string, string> = {
 };
 
 export function dishImage(name: string, categoryId: string): string {
-  // Veg starters use the uploaded chaat photo set.
+  // Each veg starter uses the original photo bearing its dish name.
   if (categoryId === "starters-veg") {
-    return startersVegPool[poolIndex(name, startersVegPool.length)] ?? snacks;
+    return starterVegDishImages[`../assets/starter-veg/${name}.jpg`] ?? startersVegPool[poolIndex(name, startersVegPool.length)] ?? snacks;
   }
   // Veg categories should never resolve to a meat photo.
   const isVeg = categoryId === "veg-main";
