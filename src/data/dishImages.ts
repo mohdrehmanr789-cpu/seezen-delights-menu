@@ -18,8 +18,19 @@ import drink from "@/assets/dish/drink.jpg";
 import salad from "@/assets/dish/salad.jpg";
 import raita from "@/assets/dish/raita.jpg";
 import kebab from "@/assets/dish/kebab.jpg";
+import sv1 from "@/assets/starters-veg-1.jpg.asset.json";
+import sv2 from "@/assets/starters-veg-2.jpg.asset.json";
+import sv3 from "@/assets/starters-veg-3.jpg.asset.json";
+import sv4 from "@/assets/starters-veg-4.jpg.asset.json";
 
-/** Keyword rules checked in order; first match wins. */
+/** Uploaded veg-starter chaat photos, cycled deterministically per dish name. */
+const startersVegPool: string[] = [sv1.url, sv2.url, sv3.url, sv4.url];
+
+function poolIndex(name: string, mod: number): number {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+  return h % mod;
+}
 const rules: Array<[RegExp, string]> = [
   [/ice[- ]cream|kulfi|faluda|hot brownie|chocolate candy/i, iceCream],
   [/chaat|dahi bada|papdi/i, chaat],
@@ -44,7 +55,7 @@ const rules: Array<[RegExp, string]> = [
 ];
 
 export const categoryFallback: Record<string, string> = {
-  "starters-veg": snacks,
+  "starters-veg": startersVegPool[0] ?? snacks,
   "starters-nonveg": chickenStarter,
   mutton: muttonCurry,
   chicken: chickenCurry,
@@ -58,8 +69,12 @@ export const categoryFallback: Record<string, string> = {
 };
 
 export function dishImage(name: string, categoryId: string): string {
+  // Veg starters use the uploaded chaat photo set.
+  if (categoryId === "starters-veg") {
+    return startersVegPool[poolIndex(name, startersVegPool.length)] ?? snacks;
+  }
   // Veg categories should never resolve to a meat photo.
-  const isVeg = categoryId === "starters-veg" || categoryId === "veg-main";
+  const isVeg = categoryId === "veg-main";
   for (const [pattern, src] of rules) {
     if (!pattern.test(name)) continue;
     if (isVeg && (src === chickenCurry || src === muttonCurry || src === fish || src === kebab)) {
