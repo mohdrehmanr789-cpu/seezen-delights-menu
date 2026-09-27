@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+Starter Veg dish photos are bundled under `src/assets/starter-veg/` and resolved by exact dish filename via Vite's eager URL glob, so Netlify includes each original image without changing other menu categories.
