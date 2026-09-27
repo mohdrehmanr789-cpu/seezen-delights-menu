@@ -18,13 +18,13 @@ import drink from "@/assets/dish/drink.jpg";
 import salad from "@/assets/dish/salad.jpg";
 import raita from "@/assets/dish/raita.jpg";
 import kebab from "@/assets/dish/kebab.jpg";
-import sv1 from "@/assets/starters-veg-1.jpg.asset.json";
-import sv2 from "@/assets/starters-veg-2.jpg.asset.json";
-import sv3 from "@/assets/starters-veg-3.jpg.asset.json";
-import sv4 from "@/assets/starters-veg-4.jpg.asset.json";
+import sv1 from "@/assets/starters-veg-1.jpg";
+import sv2 from "@/assets/starters-veg-2.jpg";
+import sv3 from "@/assets/starters-veg-3.jpg";
+import sv4 from "@/assets/starters-veg-4.jpg";
 
 /** Uploaded veg-starter chaat photos, cycled deterministically per dish name. */
-const startersVegPool: string[] = [sv1.url, sv2.url, sv3.url, sv4.url];
+const startersVegPool: string[] = [sv1, sv2, sv3, sv4];
 
 function poolIndex(name: string, mod: number): number {
   let h = 0;
