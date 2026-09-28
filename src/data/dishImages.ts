@@ -33,6 +33,13 @@ const starterVegDishImages = import.meta.glob<string>("../assets/starter-veg/*.j
   import: "default",
 });
 
+/** Original photos matched exactly to the existing Chicken Main Course dish names. */
+const chickenMainDishImages = import.meta.glob<string>("../assets/chicken-main/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
 function poolIndex(name: string, mod: number): number {
   let h = 0;
   for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
@@ -79,6 +86,9 @@ export function dishImage(name: string, categoryId: string): string {
   // Each veg starter uses the original photo bearing its dish name.
   if (categoryId === "starters-veg") {
     return starterVegDishImages[`../assets/starter-veg/${name}.jpg`] ?? startersVegPool[poolIndex(name, startersVegPool.length)] ?? snacks;
+  }
+  if (categoryId === "chicken") {
+    return chickenMainDishImages[`../assets/chicken-main/${name}.jpg`] ?? chickenCurry;
   }
   // Veg categories should never resolve to a meat photo.
   const isVeg = categoryId === "veg-main";
