@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { SiteLayout } from '@/components/SiteLayout'
+import package1 from '@/assets/packages/package-1.jpg'
+import package2 from '@/assets/packages/package-2.jpg'
+import package3 from '@/assets/packages/package-3.jpg'
+import package4 from '@/assets/packages/package-4.jpg'
+import package5 from '@/assets/packages/package-5.jpg'
 
 export const Route = createFileRoute('/packages')({
   head: () => ({
@@ -27,12 +32,11 @@ export const Route = createFileRoute('/packages')({
 type Pkg = { number: string; image: string }
 
 const packages: Pkg[] = [
-  { number: 'Package 01', image: 'https://i.ibb.co/7t90QxFd/IMG-20260816-WA0012.jpg' },
-  { number: 'Package 02', image: 'https://i.ibb.co/WNSM0Jdh/IMG-20260816-WA0011.jpg' },
-  { number: 'Package 03', image: 'https://i.ibb.co/v6zmcn9j/package-6.jpg' },
-  { number: 'Package 04', image: 'https://i.ibb.co/xScLJYXp/package-3.jpg' },
-  { number: 'Package 05', image: 'https://i.ibb.co/1GnCx3hV/package-4.jpg' },
-  { number: 'Package 06', image: 'https://i.ibb.co/gbsM958t/package-5.jpg' },
+  { number: 'Package 01', image: package1 },
+  { number: 'Package 02', image: package2 },
+  { number: 'Package 03', image: package3 },
+  { number: 'Package 04', image: package4 },
+  { number: 'Package 05', image: package5 },
 ]
 
 function PackagesPage() {
