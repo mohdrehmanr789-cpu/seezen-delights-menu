@@ -7,3 +7,5 @@
 - [x] Verify mobile and desktop layouts, search, and filters
 - [x] Match all 30 uploaded Starter Veg dish photos by exact dish name and bundle them for production
 - [x] Match all 15 uploaded Non-Veg Main Course (Chicken) photos by exact dish name and bundle them for production
+- [ ] Match uploaded Non-Veg Starter and Mutton photos without changing dishes or layout
+- [ ] Verify both categories’ photo loading and unchanged menu content
