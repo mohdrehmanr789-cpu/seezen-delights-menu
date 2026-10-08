@@ -11,3 +11,4 @@
 
 Starter Veg dish photos are bundled under `src/assets/starter-veg/` and resolved by exact dish filename via Vite's eager URL glob, so Netlify includes each original image without changing other menu categories.
 Chicken Main Course dish photos are bundled under `src/assets/chicken-main/` and resolved by exact dish filename via Vite's eager URL glob, so Netlify includes each original image without changing other menu categories.
+Non-Veg Starter and Mutton Main Course photos use Lovable asset pointers resolved by exact dish filename via eager JSON globs; preserve the existing fallback for dishes missing an uploaded photo so unrelated category mappings remain unchanged.

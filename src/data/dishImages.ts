@@ -40,6 +40,16 @@ const chickenMainDishImages = import.meta.glob<string>("../assets/chicken-main/*
   import: "default",
 });
 
+/** Original uploaded photos, matched by exact dish filename. */
+const starterNonVegDishImages = import.meta.glob<{ url: string }>("../assets/starter-nonveg/*.jpg.asset.json", {
+  eager: true,
+  import: "default",
+});
+const muttonMainDishImages = import.meta.glob<{ url: string }>("../assets/mutton-main/*.jpg.asset.json", {
+  eager: true,
+  import: "default",
+});
+
 function poolIndex(name: string, mod: number): number {
   let h = 0;
   for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
@@ -89,6 +99,14 @@ export function dishImage(name: string, categoryId: string): string {
   }
   if (categoryId === "chicken") {
     return chickenMainDishImages[`../assets/chicken-main/${name}.jpg`] ?? chickenCurry;
+  }
+  if (categoryId === "starters-nonveg") {
+    const photo = starterNonVegDishImages[`../assets/starter-nonveg/${name}.jpg.asset.json`];
+    if (photo) return photo.url;
+  }
+  if (categoryId === "mutton") {
+    const photo = muttonMainDishImages[`../assets/mutton-main/${name}.jpg.asset.json`];
+    if (photo) return photo.url;
   }
   // Veg categories should never resolve to a meat photo.
   const isVeg = categoryId === "veg-main";
