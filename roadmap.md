@@ -9,3 +9,6 @@
 - [x] Match all 15 uploaded Non-Veg Main Course (Chicken) photos by exact dish name and bundle them for production
 - [x] Match all 32 uploaded Non-Veg Starter and 17 Mutton photos without changing dishes or layout; retain the existing Chicken Cheese Starter image because no photo was supplied
 - [x] Verify both categories’ exact photo loading and unchanged dish counts, with no runtime errors
+- [ ] Bundle the existing Non-Veg Starter and Mutton originals locally for Netlify without changing their bytes
+- [ ] Replace external photo-pointer references with exact-filename project-asset mappings
+- [ ] Audit every displayed site image and video path; verify original photos load locally and the production build is error-free

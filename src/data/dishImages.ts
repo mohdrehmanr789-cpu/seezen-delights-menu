@@ -40,13 +40,15 @@ const chickenMainDishImages = import.meta.glob<string>("../assets/chicken-main/*
   import: "default",
 });
 
-/** Original uploaded photos, matched by exact dish filename. */
-const starterNonVegDishImages = import.meta.glob<{ url: string }>("../assets/starter-nonveg/*.jpg.asset.json", {
+/** Original uploaded photos, bundled locally and matched by exact dish filename. */
+const starterNonVegDishImages = import.meta.glob<string>("../assets/starter-nonveg/*.jpg", {
   eager: true,
+  query: "?url",
   import: "default",
 });
-const muttonMainDishImages = import.meta.glob<{ url: string }>("../assets/mutton-main/*.jpg.asset.json", {
+const muttonMainDishImages = import.meta.glob<string>("../assets/mutton-main/*.jpg", {
   eager: true,
+  query: "?url",
   import: "default",
 });
 
@@ -101,12 +103,12 @@ export function dishImage(name: string, categoryId: string): string {
     return chickenMainDishImages[`../assets/chicken-main/${name}.jpg`] ?? chickenCurry;
   }
   if (categoryId === "starters-nonveg") {
-    const photo = starterNonVegDishImages[`../assets/starter-nonveg/${name}.jpg.asset.json`];
-    if (photo) return photo.url;
+    const photo = starterNonVegDishImages[`../assets/starter-nonveg/${name}.jpg`];
+    if (photo) return photo;
   }
   if (categoryId === "mutton") {
-    const photo = muttonMainDishImages[`../assets/mutton-main/${name}.jpg.asset.json`];
-    if (photo) return photo.url;
+    const photo = muttonMainDishImages[`../assets/mutton-main/${name}.jpg`];
+    if (photo) return photo;
   }
   // Veg categories should never resolve to a meat photo.
   const isVeg = categoryId === "veg-main";
