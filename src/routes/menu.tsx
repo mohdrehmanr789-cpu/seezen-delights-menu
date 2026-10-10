@@ -7,6 +7,7 @@ import { menuCategories } from "@/data/menu";
 import { categoryFallback, dishImage } from "@/data/dishImages";
 
 export const Route = createFileRoute("/menu")({
+  codeSplitGroupings: [],
   head: () => ({
     meta: [
       { title: "Digital Menu — Huzee Caterers, Kanpur" },
