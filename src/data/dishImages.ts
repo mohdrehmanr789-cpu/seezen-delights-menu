@@ -72,6 +72,13 @@ const dessertsDishImages = import.meta.glob<string>("../assets/desserts/*.jpg", 
   import: "default",
 });
 
+/** Original uploaded photos, bundled locally and matched by exact dish filename. */
+const saladDishImages = import.meta.glob<string>("../assets/salad/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
 function poolIndex(name: string, mod: number): number {
   let h = 0;
   for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
@@ -144,6 +151,10 @@ export function dishImage(name: string, categoryId: string): string {
   }
   if (categoryId === "desserts") {
     const photo = dessertsDishImages[`../assets/desserts/${name}.jpg`];
+    if (photo) return photo;
+  }
+  if (categoryId === "salad") {
+    const photo = saladDishImages[`../assets/salad/${name}.jpg`];
     if (photo) return photo;
   }
   // Veg categories should never resolve to a meat photo.
