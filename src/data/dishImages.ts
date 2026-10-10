@@ -130,6 +130,22 @@ export function dishImage(name: string, categoryId: string): string {
     const photo = muttonMainDishImages[`../assets/mutton-main/${name}.jpg`];
     if (photo) return photo;
   }
+  if (categoryId === "veg-main") {
+    const photo = vegMainDishImages[`../assets/veg-main/${name}.jpg`];
+    if (photo) return photo;
+  }
+  if (categoryId === "biryani") {
+    const photo = biryaniDishImages[`../assets/biryani/${name}.jpg`];
+    if (photo) return photo;
+  }
+  if (categoryId === "roti") {
+    const photo = rotiDishImages[`../assets/roti/${name}.jpg`];
+    if (photo) return photo;
+  }
+  if (categoryId === "desserts") {
+    const photo = dessertsDishImages[`../assets/desserts/${name}.jpg`];
+    if (photo) return photo;
+  }
   // Veg categories should never resolve to a meat photo.
   const isVeg = categoryId === "veg-main";
   for (const [pattern, src] of rules) {
