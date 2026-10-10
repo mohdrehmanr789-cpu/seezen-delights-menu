@@ -51,6 +51,26 @@ const muttonMainDishImages = import.meta.glob<string>("../assets/mutton-main/*.j
   query: "?url",
   import: "default",
 });
+const vegMainDishImages = import.meta.glob<string>("../assets/veg-main/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const biryaniDishImages = import.meta.glob<string>("../assets/biryani/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const rotiDishImages = import.meta.glob<string>("../assets/roti/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const dessertsDishImages = import.meta.glob<string>("../assets/desserts/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 
 function poolIndex(name: string, mod: number): number {
   let h = 0;
@@ -108,6 +128,22 @@ export function dishImage(name: string, categoryId: string): string {
   }
   if (categoryId === "mutton") {
     const photo = muttonMainDishImages[`../assets/mutton-main/${name}.jpg`];
+    if (photo) return photo;
+  }
+  if (categoryId === "veg-main") {
+    const photo = vegMainDishImages[`../assets/veg-main/${name}.jpg`];
+    if (photo) return photo;
+  }
+  if (categoryId === "biryani") {
+    const photo = biryaniDishImages[`../assets/biryani/${name}.jpg`];
+    if (photo) return photo;
+  }
+  if (categoryId === "roti") {
+    const photo = rotiDishImages[`../assets/roti/${name}.jpg`];
+    if (photo) return photo;
+  }
+  if (categoryId === "desserts") {
+    const photo = dessertsDishImages[`../assets/desserts/${name}.jpg`];
     if (photo) return photo;
   }
   // Veg categories should never resolve to a meat photo.
