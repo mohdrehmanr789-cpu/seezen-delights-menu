@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 Menu dish photos are bundled locally under their category folders in `src/assets/` and resolved by exact dish filename via Vite's eager URL globs, so production builds include the originals; preserve each category's existing fallback and keep category mappings isolated.
+
+Keep the menu route component in the route module instead of a dynamically split chunk because its asset-heavy page should not depend on a separate component fetch.
