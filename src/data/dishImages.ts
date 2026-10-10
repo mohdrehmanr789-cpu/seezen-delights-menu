@@ -51,6 +51,26 @@ const muttonMainDishImages = import.meta.glob<string>("../assets/mutton-main/*.j
   query: "?url",
   import: "default",
 });
+const vegMainDishImages = import.meta.glob<string>("../assets/veg-main/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const biryaniDishImages = import.meta.glob<string>("../assets/biryani/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const rotiDishImages = import.meta.glob<string>("../assets/roti/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const dessertsDishImages = import.meta.glob<string>("../assets/desserts/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 
 function poolIndex(name: string, mod: number): number {
   let h = 0;
