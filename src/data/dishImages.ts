@@ -183,6 +183,14 @@ export function dishImage(name: string, categoryId: string): string {
     const photo = saladDishImages[`../assets/salad/${name}.jpg`];
     if (photo) return photo;
   }
+  if (categoryId === "ice-cream") {
+    const photo = iceCreamLookup[normalizedKey(name)];
+    if (photo) return photo;
+  }
+  if (categoryId === "drinks") {
+    const photo = drinksDishImages[`../assets/drinks/${name}.jpg`];
+    if (photo) return photo;
+  }
   // Veg categories should never resolve to a meat photo.
   const isVeg = categoryId === "veg-main";
   for (const [pattern, src] of rules) {
