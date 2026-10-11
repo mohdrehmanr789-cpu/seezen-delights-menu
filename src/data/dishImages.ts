@@ -79,6 +79,32 @@ const saladDishImages = import.meta.glob<string>("../assets/salad/*.jpg", {
   import: "default",
 });
 
+/** Original uploaded Ice-Cream photos, bundled locally and matched by dish name. */
+const iceCreamDishImages = import.meta.glob<string>("../assets/ice-cream/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+/** Original uploaded Drinks photos, bundled locally and matched by exact dish filename. */
+const drinksDishImages = import.meta.glob<string>("../assets/drinks/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+/** Normalizes a dish name so "Vanilla Ice Cream" matches "Vanilla Ice-Cream.jpg". */
+function normalizedKey(name: string): string {
+  return name.toLowerCase().replace(/[-\s]+/g, " ").trim();
+}
+
+/** Lookup by normalized dish name for the Ice-Cream category. */
+const iceCreamLookup: Record<string, string> = {};
+for (const [path, url] of Object.entries(iceCreamDishImages)) {
+  const filename = path.split("/").pop() ?? "";
+  iceCreamLookup[normalizedKey(filename.replace(/\.jpg$/i, ""))] = url;
+}
+
 function poolIndex(name: string, mod: number): number {
   let h = 0;
   for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
