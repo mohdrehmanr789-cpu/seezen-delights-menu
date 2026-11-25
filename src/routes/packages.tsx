@@ -62,7 +62,7 @@ function PackagesPage() {
       <section className="w-full bg-[#f8f3e9] px-5 py-20 sm:px-[18px] md:px-5 md:py-[65px]">
         <div className="mx-auto w-full max-w-[1180px]">
           <div className="mx-auto mb-11 max-w-[680px] text-center">
-            <span className="mb-[13px] inline-block text-[11px] font-bold uppercase tracking-[3px] text-forest">
+            <span className="mb-[13px] inline-block text-[11px] font-bold uppercase tracking-[3px] text-[#9a6c48]">
               Huzee Caterers
             </span>
             <h1 className="font-[Georgia,'Times_New_Roman',serif] text-[clamp(32px,5vw,52px)] font-medium leading-[1.15] text-[#3d2519]">
@@ -72,7 +72,7 @@ function PackagesPage() {
               Explore our specially curated catering packages, thoughtfully
               designed for your memorable celebrations.
             </p>
-            <div className="mx-auto mt-[22px] h-[2px] w-[60px] bg-forest" />
+            <div className="mx-auto mt-[22px] h-[2px] w-[60px] bg-[#a87b55]" />
           </div>
 
           <div className="grid grid-cols-2 gap-3 md:grid-cols-2 md:gap-[18px] lg:grid-cols-3 lg:gap-[25px]">
@@ -89,7 +89,7 @@ function PackagesPage() {
                     setActive(pkg)
                   }
                 }}
-                className="group relative cursor-pointer overflow-hidden rounded-[15px] border border-[#6f452d]/15 bg-[#fffaf3] shadow-[0_10px_28px_rgba(61,37,25,0.08)] outline-none transition-[transform,box-shadow] duration-300 focus-visible:ring-2 focus-visible:ring-forest hover:-translate-y-2 hover:shadow-[0_18px_40px_rgba(61,37,25,0.16)] md:rounded-[22px]"
+                className="group relative cursor-pointer overflow-hidden rounded-[15px] border border-[#6f452d]/15 bg-[#fffaf3] shadow-[0_10px_28px_rgba(61,37,25,0.08)] outline-none transition-[transform,box-shadow] duration-300 focus-visible:shadow-[0_0_0_3px_#f8f3e9,0_0_0_6px_#8c6244] hover:-translate-y-2 hover:shadow-[0_18px_40px_rgba(61,37,25,0.16)] md:rounded-[22px]"
               >
                 <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#e9dece] md:aspect-[4/5]">
                   <img
@@ -102,7 +102,7 @@ function PackagesPage() {
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#28180f]/50 via-[#28180f]/[0.04] to-transparent"
                     aria-hidden="true"
                   />
-                  <span className="absolute bottom-[9px] left-[9px] z-2 rounded-full border border-white/25 bg-forest/90 px-[9px] py-[6px] text-[8px] font-bold uppercase tracking-[0.8px] text-white backdrop-blur-md md:bottom-[17px] md:left-[18px] md:px-[14px] md:py-[9px] md:text-[10px] md:tracking-[1.4px]">
+                  <span className="absolute bottom-[9px] left-[9px] z-2 rounded-full border border-white/25 bg-[#3d2519]/86 px-[9px] py-[6px] text-[8px] font-bold uppercase tracking-[0.8px] text-white backdrop-blur-md md:bottom-[17px] md:left-[18px] md:px-[14px] md:py-[9px] md:text-[10px] md:tracking-[1.4px]">
                     {pkg.number}
                   </span>
                 </div>

@@ -96,7 +96,7 @@ function MenuPage() {
         <section className="mx-auto max-w-6xl px-4 pt-6 pb-16 sm:px-7 sm:pt-9">
           {/* Header */}
           <header className="mb-5 text-center">
-            <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.2em] text-forest">
+            <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.2em] text-[#a67c38]">
               Digital Menu
             </p>
             <h1 className={`${serif} mt-1 text-3xl font-bold text-[#3d2519] sm:text-4xl`}>
@@ -115,7 +115,7 @@ function MenuPage() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search dishes (e.g. Biryani, Korma, Paneer)..."
               aria-label="Search dishes"
-              className="h-[52px] w-full rounded-2xl border border-[#e9ded0] bg-[#fdfaf5] pr-4 pl-12 text-sm text-[#17120f] outline-none transition placeholder:text-[#9b9188] focus:border-forest focus:ring-2 focus:ring-forest/10"
+              className="h-[52px] w-full rounded-2xl border border-[#e9ded0] bg-[#fdfaf5] pr-4 pl-12 text-sm text-[#17120f] outline-none transition placeholder:text-[#9b9188] focus:border-[#6f452d] focus:shadow-[0_0_0_3px_rgba(111,69,45,0.09)]"
             />
           </div>
 
@@ -132,8 +132,8 @@ function MenuPage() {
                   }}
                   className={`h-9 shrink-0 rounded-full border px-3.5 text-xs font-semibold whitespace-nowrap transition-colors ${
                     chip === g.id && !selected
-                      ? "border-forest bg-forest text-white"
-                      : "border-[#e9ded0] bg-[#fffaf3] text-[#3d2519] hover:border-forest"
+                      ? "border-[#6f452d] bg-[#6f452d] text-white"
+                      : "border-[#e9ded0] bg-[#fffaf3] text-[#3d2519] hover:border-[#6f452d]"
                   }`}
                 >
                   {g.label}
@@ -147,7 +147,7 @@ function MenuPage() {
                 role="switch"
                 aria-checked={vegOnly}
                 onClick={() => setVegOnly((v) => !v)}
-                className={`relative h-[23px] w-10 rounded-full transition-colors ${vegOnly ? "bg-forest" : "bg-[#d4c8bc]"}`}
+                className={`relative h-[23px] w-10 rounded-full transition-colors ${vegOnly ? "bg-[#21863a]" : "bg-[#d4c8bc]"}`}
               >
                 <span
                   className={`absolute top-[3px] left-[3px] size-[17px] rounded-full bg-white shadow transition-transform ${vegOnly ? "translate-x-[17px]" : ""}`}
@@ -181,7 +181,7 @@ function MenuPage() {
               <button
                 type="button"
                 onClick={() => setSelected(null)}
-                className="mb-4 inline-flex items-center gap-2 rounded-xl border border-[#e9ded0] bg-[#fffdf8] px-4 py-2.5 text-[13px] font-bold text-forest transition-colors hover:border-forest hover:bg-forest-soft"
+                className="mb-4 inline-flex items-center gap-2 rounded-xl border border-[#e9ded0] bg-[#fffdf8] px-4 py-2.5 text-[13px] font-bold text-[#3d2519] transition-colors hover:bg-[#eadccc]"
               >
                 <ArrowLeft className="size-4" />
                 Back to Categories
@@ -195,8 +195,8 @@ function MenuPage() {
                     onClick={() => setSelected(c.id)}
                     className={`h-9 shrink-0 rounded-full border px-3.5 text-[11px] font-bold whitespace-nowrap transition-colors ${
                       selected === c.id
-                        ? "border-forest bg-forest text-white"
-                        : "border-[#e9ded0] bg-[#fffaf4] text-[#3d2519] hover:border-forest"
+                        ? "border-[#6f452d] bg-[#6f452d] text-white"
+                        : "border-[#e9ded0] bg-[#fffaf4] text-[#3d2519] hover:border-[#6f452d]"
                     }`}
                   >
                     {c.title}
@@ -205,7 +205,7 @@ function MenuPage() {
               </div>
 
               <div className="mb-4">
-                <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-forest">
+                <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-[#a67c38]">
                   Our curated collection
                 </p>
                 <h2 className={`${serif} mt-1 text-2xl font-bold text-[#3d2519] sm:text-[27px]`}>
@@ -227,7 +227,7 @@ function MenuPage() {
             <div>
               <div className="mb-4 flex items-end justify-between gap-3">
                 <div>
-                  <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-forest">
+                  <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-[#a67c38]">
                     Explore our selection
                   </p>
                   <h2 className={`${serif} mt-1 text-2xl font-bold text-[#3d2519] sm:text-[27px]`}>
@@ -307,7 +307,7 @@ function DishGrid({
           <div className="min-w-0 flex-1">
             <span
               className={`mb-1.5 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold ${
-                veg ? "bg-forest-soft text-forest" : "bg-[#fbe9e7] text-[#a52520]"
+                veg ? "bg-[#e7f4e8] text-[#176b2b]" : "bg-[#fbe9e7] text-[#a52520]"
               }`}
             >
               {veg ? "● Veg" : "● Non-Veg"}
@@ -323,7 +323,7 @@ function DishGrid({
 function EmptyState({ query }: { query?: string }) {
   return (
     <div className="px-5 py-14 text-center text-[#786e66]">
-      <div className="mx-auto mb-4 grid size-14 place-items-center rounded-full bg-forest-soft text-forest">
+      <div className="mx-auto mb-4 grid size-14 place-items-center rounded-full bg-[#eadccc] text-[#6f452d]">
         <SearchX className="size-6" />
       </div>
       <h3 className={`${serif} mb-1.5 text-xl font-bold text-[#3d2519]`}>No dishes found</h3>

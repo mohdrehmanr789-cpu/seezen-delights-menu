@@ -19,8 +19,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="text-muted-foreground transition-colors hover:text-forest"
-              activeProps={{ className: "text-forest font-medium" }}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{ className: "text-foreground font-medium" }}
             >
               {item.label}
             </Link>
@@ -37,7 +37,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </p>
         <p className="mt-2 text-[0.68rem] uppercase tracking-[0.2em] text-muted-foreground">
           Chamanganj, Kanpur |{" "}
-          <a href="tel:8957966999" className="text-foreground hover:text-forest">
+          <a href="tel:8957966999" className="text-foreground hover:text-gold">
             8957966999
           </a>
         </p>

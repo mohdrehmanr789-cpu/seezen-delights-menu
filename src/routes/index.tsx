@@ -35,7 +35,7 @@ function Home() {
           height={330}
           className="mb-8 h-28 w-auto sm:h-36"
         />
-        <p className="text-[0.62rem] uppercase tracking-[0.4em] text-forest">We Serve Memories</p>
+        <p className="text-[0.62rem] uppercase tracking-[0.4em] text-gold">We Serve Memories</p>
         <div className="my-6 h-px w-28 gold-rule" />
         <h1 className="text-4xl leading-tight font-semibold tracking-[0.06em] uppercase sm:text-6xl">
           HUZEE CATERERS
@@ -48,14 +48,14 @@ function Home() {
         <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row">
           <Link
             to="/menu"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-forest px-8 py-4 text-xs uppercase tracking-[0.22em] text-primary-foreground transition-colors hover:bg-forest/90"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-xs uppercase tracking-[0.22em] text-primary-foreground transition-colors hover:bg-primary/90"
           >
             <UtensilsCrossed className="size-4 shrink-0" />
             View Menu
           </Link>
           <Link
             to="/packages"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-forest px-8 py-4 text-xs uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-secondary"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-gold px-8 py-4 text-xs uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-secondary"
           >
             <PackageOpen className="size-4 shrink-0" />
             View Packages
